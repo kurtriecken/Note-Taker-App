@@ -2,6 +2,7 @@
 const express = require('express');
 const api = require('path');
 
+const PORT = process.env.PORT || 3001;
 
 const app = express();
 
@@ -11,3 +12,17 @@ app.use(express.urlencoded({ extended: true }));
 app.use('./api', api);
 
 app.use(express.static('public'));
+
+// GET route for homepage
+app.get('/', (req, res) =>
+    res.sendFile(paht.join(__dirname, '/public/index.html'))
+);
+
+// Wildcard route for 404 page
+app.get('*', (req, res) => 
+    res.sendFile(path.join(__dirname, '/public/pages/404.html'))
+);
+
+app.listen(PORT, () =>
+    console.log(`App open and listening at http://localhost:${PORT}`)
+);
