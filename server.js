@@ -15,14 +15,19 @@ app.use('./api', api);
 
 app.use(express.static('public'));
 
-// GET route for homepage
-app.get('/', (req, res) =>
-    res.sendFile(path.join(__dirname, '/public/index.html'))
+// GET route for notes page
+app.get('/notes', (req, res) =>
+    res.sendFile(path.join(__dirname, '/public/pages/notes.html'))
 );
 
-// Wildcard route for 404 page
-app.get('*', (req, res) => 
+// Route for 404 page
+app.get('/404', (req, res) => 
     res.sendFile(path.join(__dirname, '/public/pages/404.html'))
+);
+
+// GET route for homepage (wildcard)
+app.get('*', (req, res) =>
+    res.sendFile(path.join(__dirname, '/public/index.html'))
 );
 
 app.listen(PORT, () =>

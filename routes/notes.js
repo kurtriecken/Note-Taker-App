@@ -5,5 +5,5 @@ notes.get('/', (req, res) => {
     console.log('attempted get request to api/notes');
 })
 
-
+// POST route for adding a note 
 module.exports = notes;
