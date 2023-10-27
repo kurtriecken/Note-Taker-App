@@ -20,7 +20,7 @@ app.use(express.static('public'));
 
 // GET route for notes page
 app.get('/notes', (req, res) =>
-    res.sendFile(path.join(__dirname, '/public/pages/notes.html'))
+    res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
 // Route for 404 page

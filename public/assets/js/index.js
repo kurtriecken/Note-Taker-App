@@ -129,6 +129,8 @@ const handleRenderBtns = () => {
 
 // Render the list of note titles
 const renderNoteList = async (notes) => {
+  console.log('rendering note list');
+
   let jsonNotes = await notes.json();
   if (window.location.pathname === '/notes') {
     noteList.forEach((el) => (el.innerHTML = ''));
@@ -190,5 +192,7 @@ if (window.location.pathname === '/notes') {
   clearBtn.addEventListener('click', renderActiveNote);
   noteForm.addEventListener('input', handleRenderBtns);
 }
+
+console.log(window.location.pathname);
 
 getAndRenderNotes();
