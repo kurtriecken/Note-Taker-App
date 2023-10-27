@@ -1,17 +1,20 @@
 // Importing core modules
 const express = require('express');
 const path = require('path');
-
+const { clog } = require('./middleware/clog')
 const api = require('./routes/index.js')
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 const app = express();
+
+// Import custom middleware for api request alerts
+app.use(clog);
 
 // Middleware for parsing JSON and urlencoded form data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('./api', api);
+app.use('/api', api);
 
 app.use(express.static('public'));
 
