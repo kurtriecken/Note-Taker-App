@@ -1,6 +1,8 @@
 // Importing core modules
 const express = require('express');
-const api = require('path');
+const path = require('path');
+
+const api = require('./routes/index.js')
 
 const PORT = process.env.PORT || 3001;
 
@@ -15,7 +17,7 @@ app.use(express.static('public'));
 
 // GET route for homepage
 app.get('/', (req, res) =>
-    res.sendFile(paht.join(__dirname, '/public/index.html'))
+    res.sendFile(path.join(__dirname, '/public/index.html'))
 );
 
 // Wildcard route for 404 page
